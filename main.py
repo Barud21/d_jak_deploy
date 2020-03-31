@@ -13,3 +13,7 @@ class HelloNameResp(BaseModel):
 @app.get('/hello/{name}', response_model=HelloNameResp)
 def hello_name(name: str):
     return HelloNameResp(message=f"Hello {name}")
+
+# @pp.get('/method')
+# def return_method():
+#
