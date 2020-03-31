@@ -8,7 +8,7 @@ client = TestClient(app)
 def test_hello_world():
     response = client.get('/')
     assert response.status_code == 200
-    assert response.json() == {"message": "Hello World"}
+    assert response.json() == {"message": "Hello World during the coronavirus pandemic!"}
 
 @pytest.mark.parametrize("name", ["Ala", "Zażółć Gęślą jaźń", "Grzegorz Brzęczyszczykiewicz"])
 def test_hello_name(name):
