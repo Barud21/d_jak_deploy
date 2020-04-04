@@ -16,7 +16,7 @@ def test_hello_world():
 # Zadanie 3
 ##############################################################
 
-#@pytest.mark.parametrize("id, name, surename", [(0, "Bartek", "Rudzinski"), (1, "Brad", "Pitt"), (2, "Kamui", "Kobayashi")])
+#@pytest.mark.parametrize("id", [0])
 def test_patient_data():
     response = client.post('/patient', json={"name": "Bartek", "surename": "Rudzinski"})
     assert response.status_code == 200

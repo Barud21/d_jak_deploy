@@ -35,6 +35,7 @@ class patient_data_resp(BaseModel):
 
 @app.post('/patient')
 def patient_data(rq: patient_data_rq):
+    #rp.id = rp.id + 1 #TODO: czemu to nie działa
     return patient_data_resp(patient=rq.dict())
 
 ##############################################################
