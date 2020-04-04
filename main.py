@@ -8,6 +8,10 @@ app = FastAPI()
 def hello_world():
     return {"message": "Hello World during the coronavirus pandemic!"}
 
+# @app.get('/method')
+# def return_method_name():
+#
+
 class HelloNameResp(BaseModel):
     message: str
 
@@ -24,7 +28,7 @@ class GiveMeSomethingResp(BaseModel):
     constant_data: str = "python jest super"
 
 
-@app.post("/dej/mi/coś", response_model=GiveMeSomethingResp)
+@app.post("/dej/mi/cos", response_model=GiveMeSomethingResp)
 def receive_something(rq: GiveMeSomethingRq):
     return GiveMeSomethingResp(received=rq.dict())
 
