@@ -16,6 +16,11 @@ def test_hello_name(name):
     assert response.status_code == 200
     assert response.json() == {"message": f"Hello {name}"}
 
+def test_receive_something():
+    response = client.post("/dej/mi/coś", json={'first_key': 'some_value'})
+    assert response.json() == {"received": {'first_key': 'some_value'},
+                               "constant_data": "python jest super"}
+
 # def test_return_method():
 #     response = client.get('/method')
 #     assert response.status_code == 200
