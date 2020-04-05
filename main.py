@@ -2,7 +2,6 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 app = FastAPI()
-
 app.counter = 0
 app.patients = []
 
@@ -49,13 +48,13 @@ class patient_data_resp(BaseModel):
     id: int
     patient: patient_data_rq
 
-# #TODO: zrobić licznik przechowujący liczbę wejść na stronę
 
 @app.post('/patient')
 def patient_data(rq: patient_data_rq):
     app.patients.append(rq)
     app.counter += 1
     return patient_data_resp(id=app.counter, patient=rq)
+
 
 ##############################################################
 # Zadanie 4
@@ -70,6 +69,7 @@ def show_patient_data(pk: int):
 
 
 ##############################################################
+# Wykład
 ##############################################################
 
 # class HelloNameResp(BaseModel):
