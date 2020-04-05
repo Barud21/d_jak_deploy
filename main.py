@@ -55,7 +55,7 @@ class patient_data_resp(BaseModel):
 def patient_data(rq: patient_data_rq):
     app.patients.append(rq)
     app.counter += 1
-    return patient_data_resp
+    return patient_data_resp(id=app.counter, patient=rq)
 
 ##############################################################
 # Zadanie 4
