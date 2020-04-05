@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 app = FastAPI()
@@ -61,11 +61,12 @@ def patient_data(rq: patient_data_rq):
 # Zadanie 4
 ##############################################################
 
-
-
-
-
-
+@app.get('/patient/{pk}')
+def show_patient_data(pk: int):
+    if pk < len(app.patients):
+        return app.patients[pk]
+    else:
+        raise HTTPException(status_code=204, detail="Index not found")
 
 
 ##############################################################
